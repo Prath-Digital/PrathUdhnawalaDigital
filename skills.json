@@ -1,78 +1,78 @@
 [
     {
         "name": "Python",
-        "icon": "./assets/images/skills/python.svg"
+        "icon": "/assets/images/skills/python.svg"
     },
     {
         "name": "MySQL",
-        "icon": "./assets/images/skills/mysql.svg"
+        "icon": "/assets/images/skills/mysql.svg"
     },
     {
         "name": "Machine Learning",
-        "icon": "./assets/images/skills/machine-learning.svg"
+        "icon": "/assets/images/skills/machine-learning.svg"
     },
     {
         "name": "Deep Learning",
-        "icon": "./assets/images/skills/deep-learning.svg"
+        "icon": "/assets/images/skills/deep-learning.svg"
     },
     {
         "name": "Statistics",
-        "icon": "./assets/images/skills/statistics.svg"
+        "icon": "/assets/images/skills/statistics.svg"
     },
     {
         "name": "Data Analysis",
-        "icon": "./assets/images/skills/data-analysis.svg"
+        "icon": "/assets/images/skills/data-analysis.svg"
     },
     {
         "name": "Data Science",
-        "icon": "./assets/images/skills/data-science.svg"
+        "icon": "/assets/images/skills/data-science.svg"
     },
     {
         "name": "Power BI",
-        "icon": "./assets/images/skills/power-bi.svg"
+        "icon": "/assets/images/skills/power-bi.svg"
     },
     {
         "name": "Advanced Excel",
-        "icon": "./assets/images/skills/excel.svg"
+        "icon": "/assets/images/skills/excel.svg"
     },
     {
         "name": "C++",
-        "icon": "./assets/images/skills/cpp.svg"
+        "icon": "/assets/images/skills/cpp.svg"
     },
     {
         "name": "C",
-        "icon": "./assets/images/skills/c.svg"
+        "icon": "/assets/images/skills/c.svg"
     },
     {
         "name": "HTML5",
-        "icon": "./assets/images/skills/html5.svg"
+        "icon": "/assets/images/skills/html5.svg"
     },
     {
         "name": "CSS3",
-        "icon": "./assets/images/skills/css3.svg"
+        "icon": "/assets/images/skills/css3.svg"
     },
     {
         "name": "JavaScript",
-        "icon": "./assets/images/skills/js.svg"
+        "icon": "/assets/images/skills/js.svg"
     },
     {
         "name": "Git",
-        "icon": "./assets/images/skills/git.svg"
+        "icon": "/assets/images/skills/git.svg"
     },
     {
         "name": "GitHub",
-        "icon": "./assets/images/skills/github.svg"
+        "icon": "/assets/images/skills/github.svg"
     },
     {
         "name": "Firebase",
-        "icon": "./assets/images/skills/firebase.svg"
+        "icon": "/assets/images/skills/firebase.svg"
     },
     {
         "name": "Animation & VFX",
-        "icon": "./assets/images/skills/blender.svg"
+        "icon": "/assets/images/skills/blender.svg"
     },
     {
         "name": "Figma",
-        "icon": "./assets/images/skills/figma.svg"
+        "icon": "/assets/images/skills/figma.svg"
     }
 ]

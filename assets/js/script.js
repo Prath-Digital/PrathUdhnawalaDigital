@@ -56,9 +56,9 @@ if (document.querySelector('.typing-text')) {
 async function fetchData(type = "skills") {
     let response;
     type === "skills" ?
-        response = await fetch("skills.json")
+        response = await fetch("/skills.json")
         :
-        response = await fetch("achievements.json");
+        response = await fetch("/achievements.json");
     const data = await response.json();
     return data;
 }
@@ -105,7 +105,7 @@ function showAchievements(achievements) {
             <div class="box badge-card tilt ${achType}">
               <div class="badge-inner">
                 <div class="badge-front">
-                  <img draggable="false" src="${ach.image}" alt="badge" onerror="this.onerror=null; this.src='./assets/images/certificate-placeholder.svg';" />
+                  <img draggable="false" src="${ach.image}" alt="badge" onerror="this.onerror=null; this.src='/assets/images/certificate-placeholder.svg';" />
                 </div>
                 <div class="badge-back">
                   <h3>${ach.name}</h3>
@@ -119,7 +119,7 @@ function showAchievements(achievements) {
         } else {
             achievementHTML += `
             <div class="box tilt ${achType}">
-              <img draggable="false" src="${ach.image}" alt="achievement" onerror="this.onerror=null; this.src='./assets/images/certificate-placeholder.svg';" />
+              <img draggable="false" src="${ach.image}" alt="achievement" onerror="this.onerror=null; this.src='/assets/images/certificate-placeholder.svg';" />
               <div class="content">
                 <div class="tag">
                 <h3>${ach.name}</h3>
