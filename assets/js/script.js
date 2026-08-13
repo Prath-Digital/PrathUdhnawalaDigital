@@ -73,6 +73,137 @@ const fallbackSkillsData = [
     { "name": "Figma", "icon": "/assets/images/skills/figma.svg" }
 ];
 
+const fallbackAchievementsData = [
+    {
+        "name": "Use AI Responsibly",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera 0O7QWG62P5M4.png",
+        "pdf": "/assets/achievements/Coursera 0O7QWG62P5M4.png",
+        "link": "/assets/achievements/Coursera 0O7QWG62P5M4.png",
+        "type": "certificate"
+    },
+    {
+        "name": "Loops and Strings",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera 30SJ4JCD5323.png",
+        "pdf": "/assets/achievements/Coursera 30SJ4JCD5323.pdf",
+        "link": "/assets/achievements/Coursera 30SJ4JCD5323.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Supervised Machine Learning: Regression and Classification",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera 3ZM3RWVWK1TP.png",
+        "pdf": "/assets/achievements/Coursera 3ZM3RWVWK1TP.pdf",
+        "link": "/assets/achievements/Coursera 3ZM3RWVWK1TP.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Maximize Productivity With AI Tools",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera 46UHCYULAE5F.png",
+        "pdf": "/assets/achievements/Coursera 46UHCYULAE5F.pdf",
+        "link": "/assets/achievements/Coursera 46UHCYULAE5F.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Introduction to AI",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera 831POPUHD5N1.png",
+        "pdf": "/assets/achievements/Coursera 831POPUHD5N1.pdf",
+        "link": "/assets/achievements/Coursera 831POPUHD5N1.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Advanced Learning Algorithms",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera GGNK2LCJNGQ9.png",
+        "pdf": "/assets/achievements/Coursera GGNK2LCJNGQ9.pdf",
+        "link": "/assets/achievements/Coursera GGNK2LCJNGQ9.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Hello, Python!",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera I6AAC42TKZLW.png",
+        "pdf": "/assets/achievements/Coursera I6AAC42TKZLW.pdf",
+        "link": "/assets/achievements/Coursera I6AAC42TKZLW.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Machine Learning Specialization",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera IJOGKMTMN7S0.png",
+        "pdf": "/assets/achievements/Coursera IJOGKMTMN7S0.pdf",
+        "link": "/assets/achievements/Coursera IJOGKMTMN7S0.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Discover the Art of Prompting",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera ISDX8LH8MHXU.png",
+        "pdf": "/assets/achievements/Coursera ISDX8LH8MHXU.pdf",
+        "link": "/assets/achievements/Coursera ISDX8LH8MHXU.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Stay Ahead of the AI Curve",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera J8MY1ZPFEKBW.png",
+        "pdf": "/assets/achievements/Coursera J8MY1ZPFEKBW.pdf",
+        "link": "/assets/achievements/Coursera J8MY1ZPFEKBW.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Unsupervised Learning, Recommenders, Reinforcement Learning",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera KN3U77CNUSWZ.png",
+        "pdf": "/assets/achievements/Coursera KN3U77CNUSWZ.pdf",
+        "link": "/assets/achievements/Coursera KN3U77CNUSWZ.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Functions and Conditional Statements",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera V5S8C92637ZC.png",
+        "pdf": "/assets/achievements/Coursera V5S8C92637ZC.pdf",
+        "link": "/assets/achievements/Coursera V5S8C92637ZC.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Google AI Essentials",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera WJIU9BNAS7H2.png",
+        "pdf": "/assets/achievements/Coursera WJIU9BNAS7H2.pdf",
+        "link": "/assets/achievements/Coursera WJIU9BNAS7H2.pdf",
+        "type": "certificate"
+    },
+    {
+        "name": "Google AI Essentials Badge",
+        "provider": "Google",
+        "image": "/assets/achievements/google-ai-essentials-v1.png",
+        "pdf": "/assets/achievements/GoogleAIEssentialsV1_Badge20260617-30-emy8d4.pdf",
+        "link": "/assets/achievements/GoogleAIEssentialsV1_Badge20260617-30-emy8d4.pdf",
+        "type": "badge"
+    },
+    {
+        "name": "Python",
+        "provider": "Kaggle",
+        "image": "/assets/achievements/Prath Udhnawala - Python.png",
+        "pdf": "/assets/achievements/Prath Udhnawala - Python.png",
+        "link": "/assets/achievements/Prath Udhnawala - Python.png",
+        "type": "certificate"
+    },
+    {
+        "name": "Data Structures in Python",
+        "provider": "Coursera",
+        "image": "/assets/achievements/Coursera HTHE4FKOXMSX.png",
+        "pdf": "/assets/achievements/Coursera HTHE4FKOXMSX.pdf",
+        "link": "/assets/achievements/Coursera HTHE4FKOXMSX.pdf",
+        "type": "certificate"
+    }
+];
+
 async function fetchData(type = "skills") {
     let filename = type === "skills" ? "skills.json" : "achievements.json";
     let urlsToTry = [`/${filename}`, `./${filename}`, filename];
@@ -93,15 +224,17 @@ async function fetchData(type = "skills") {
     
     if (type === "skills") {
         return fallbackSkillsData;
+    } else {
+        return fallbackAchievementsData;
     }
-    return [];
 }
 
 function showSkills(skills) {
     let skillsContainer = document.getElementById("skillsContainer");
     if (!skillsContainer) return;
+    let skillList = (Array.isArray(skills) && skills.length > 0) ? skills : fallbackSkillsData;
     let skillHTML = "";
-    skills.forEach(skill => {
+    skillList.forEach(skill => {
         skillHTML += `
         <div class="bar">
               <div class="info">
@@ -112,14 +245,20 @@ function showSkills(skills) {
     });
     skillsContainer.innerHTML = skillHTML;
 
-    // Trigger ScrollReveal for skills bars AFTER innerHTML is populated
+    // Ensure elements are visible
+    let bars = skillsContainer.querySelectorAll('.bar');
+    bars.forEach(bar => {
+        bar.style.visibility = 'visible';
+        bar.style.opacity = '1';
+    });
+
     if (typeof ScrollReveal !== 'undefined') {
         const srtop = ScrollReveal({
             origin: 'top',
             distance: '80px',
             duration: 1200,
             reset: true,
-            mobile: false,
+            mobile: true,
             easing: 'cubic-bezier(0.5, 0, 0, 1)'
         });
         srtop.reveal('.skills .container .bar', { origin: 'bottom', interval: 60 });
@@ -130,12 +269,14 @@ function showAchievements(achievements) {
     let achievementsContainer = document.querySelector("#achievements .box-container");
     if (!achievementsContainer) return;
 
+    let achievementList = (Array.isArray(achievements) && achievements.length > 0) ? achievements : fallbackAchievementsData;
+
     let path = window.location.pathname.toLowerCase();
     let isAchievementsPage = path.includes("achievements");
     let isMainPage = !isAchievementsPage;
     
     // Sort so certificates appear first, then badges
-    let sortedAchievements = achievements.sort((a, b) => {
+    let sortedAchievements = achievementList.sort((a, b) => {
         let typeA = a.type || 'certificate';
         let typeB = b.type || 'certificate';
         if (typeA === typeB) return 0;
@@ -185,6 +326,14 @@ function showAchievements(achievements) {
     });
     achievementsContainer.innerHTML = achievementHTML;
 
+    // Ensure elements are immediately visible even if ScrollReveal fails or is on mobile
+    let boxes = achievementsContainer.querySelectorAll('.box');
+    boxes.forEach(box => {
+        box.style.visibility = 'visible';
+        box.style.opacity = '1';
+        box.style.display = 'block';
+    });
+
     // tilt js effect
     if (typeof VanillaTilt !== 'undefined') {
         VanillaTilt.init(document.querySelectorAll(".tilt"), {
@@ -195,7 +344,6 @@ function showAchievements(achievements) {
     // Simple flexbox-friendly filter
     if (document.querySelector('.work .button-group')) {
         let filterButtons = document.querySelectorAll('.work .button-group .btn');
-        let boxes = achievementsContainer.querySelectorAll('.box');
 
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -226,7 +374,7 @@ function showAchievements(achievements) {
             duration: 1200,
             reset: true,
             viewFactor: 0.1,
-            mobile: false,
+            mobile: true,
             easing: 'cubic-bezier(0.5, 0, 0, 1)'
         });
         srtop.reveal('.work .box', { origin: 'bottom', interval: 80 });
@@ -274,7 +422,7 @@ if (typeof ScrollReveal !== 'undefined') {
         distance: '80px',
         duration: 1200,
         reset: true,
-        mobile: false,
+        mobile: true,
         easing: 'cubic-bezier(0.5, 0, 0, 1)'
     });
 
