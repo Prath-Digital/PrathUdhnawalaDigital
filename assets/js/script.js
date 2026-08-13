@@ -37,8 +37,6 @@ $(document).ready(function () {
         }, 500, 'linear')
     });
 
-    // <!-- native form submission handled by formsubmit.co in HTML -->
-
 });
 
 
@@ -53,14 +51,50 @@ if (document.querySelector('.typing-text')) {
 }
 // <!-- typed js effect ends -->
 
+const fallbackSkillsData = [
+    { "name": "Python", "icon": "/assets/images/skills/python.svg" },
+    { "name": "MySQL", "icon": "/assets/images/skills/mysql.svg" },
+    { "name": "Machine Learning", "icon": "/assets/images/skills/machine-learning.svg" },
+    { "name": "Deep Learning", "icon": "/assets/images/skills/deep-learning.svg" },
+    { "name": "Statistics", "icon": "/assets/images/skills/statistics.svg" },
+    { "name": "Data Analysis", "icon": "/assets/images/skills/data-analysis.svg" },
+    { "name": "Data Science", "icon": "/assets/images/skills/data-science.svg" },
+    { "name": "Power BI", "icon": "/assets/images/skills/power-bi.svg" },
+    { "name": "Advanced Excel", "icon": "/assets/images/skills/excel.svg" },
+    { "name": "C++", "icon": "/assets/images/skills/cpp.svg" },
+    { "name": "C", "icon": "/assets/images/skills/c.svg" },
+    { "name": "HTML5", "icon": "/assets/images/skills/html5.svg" },
+    { "name": "CSS3", "icon": "/assets/images/skills/css3.svg" },
+    { "name": "JavaScript", "icon": "/assets/images/skills/js.svg" },
+    { "name": "Git", "icon": "/assets/images/skills/git.svg" },
+    { "name": "GitHub", "icon": "/assets/images/skills/github.svg" },
+    { "name": "Firebase", "icon": "/assets/images/skills/firebase.svg" },
+    { "name": "Animation & VFX", "icon": "/assets/images/skills/blender.svg" },
+    { "name": "Figma", "icon": "/assets/images/skills/figma.svg" }
+];
+
 async function fetchData(type = "skills") {
-    let response;
-    type === "skills" ?
-        response = await fetch("/skills.json")
-        :
-        response = await fetch("/achievements.json");
-    const data = await response.json();
-    return data;
+    let filename = type === "skills" ? "skills.json" : "achievements.json";
+    let urlsToTry = [`/${filename}`, `./${filename}`, filename];
+    
+    for (let u of urlsToTry) {
+        try {
+            let response = await fetch(u);
+            if (response.ok) {
+                let data = await response.json();
+                if (Array.isArray(data) && data.length > 0) {
+                    return data;
+                }
+            }
+        } catch (e) {
+            console.warn(`Fetch attempt for ${u} failed:`, e);
+        }
+    }
+    
+    if (type === "skills") {
+        return fallbackSkillsData;
+    }
+    return [];
 }
 
 function showSkills(skills) {
@@ -71,19 +105,34 @@ function showSkills(skills) {
         skillHTML += `
         <div class="bar">
               <div class="info">
-                <img src=${skill.icon} alt="skill" />
+                <img src="${skill.icon}" alt="skill" />
                 <span>${skill.name}</span>
               </div>
-            </div>`
+            </div>`;
     });
     skillsContainer.innerHTML = skillHTML;
+
+    // Trigger ScrollReveal for skills bars AFTER innerHTML is populated
+    if (typeof ScrollReveal !== 'undefined') {
+        const srtop = ScrollReveal({
+            origin: 'top',
+            distance: '80px',
+            duration: 1200,
+            reset: true,
+            mobile: false,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)'
+        });
+        srtop.reveal('.skills .container .bar', { origin: 'bottom', interval: 60 });
+    }
 }
 
 function showAchievements(achievements) {
     let achievementsContainer = document.querySelector("#achievements .box-container");
     if (!achievementsContainer) return;
 
-    let isMainPage = window.location.pathname.endsWith("index.html") || window.location.pathname === "/" || window.location.pathname.endsWith("/");
+    let path = window.location.pathname.toLowerCase();
+    let isAchievementsPage = path.includes("achievements");
+    let isMainPage = !isAchievementsPage;
     
     // Sort so certificates appear first, then badges
     let sortedAchievements = achievements.sort((a, b) => {
@@ -136,11 +185,12 @@ function showAchievements(achievements) {
     });
     achievementsContainer.innerHTML = achievementHTML;
 
-    // <!-- tilt js effect starts -->
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-    });
-    // <!-- tilt js effect ends -->
+    // tilt js effect
+    if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll(".tilt"), {
+            max: 15,
+        });
+    }
 
     // Simple flexbox-friendly filter
     if (document.querySelector('.work .button-group')) {
@@ -149,17 +199,14 @@ function showAchievements(achievements) {
 
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Update active button
                 filterButtons.forEach(b => b.classList.remove('is-checked'));
                 btn.classList.add('is-checked');
 
                 let filterValue = btn.getAttribute('data-filter');
 
-                // Filter boxes
                 boxes.forEach(box => {
                     if (filterValue === '*' || box.classList.contains(filterValue.replace('.', ''))) {
                         box.style.display = 'block';
-                        // Override ScrollReveal hidden state
                         box.style.visibility = 'visible';
                         box.style.opacity = '1';
                         box.style.transform = 'none';
@@ -172,22 +219,21 @@ function showAchievements(achievements) {
     }
 
     /* ===== SCROLL REVEAL ANIMATION ===== */
-    const srtop = ScrollReveal({
-        origin: 'top',
-        distance: '80px',
-        duration: 1200,
-        reset: true, // Re-enable for desktop
-        viewFactor: 0.1, // Trigger earlier
-        mobile: false, // Disable entirely on mobile to fix scrolling bugs
-        easing: 'cubic-bezier(0.5, 0, 0, 1)'
-    });
-
-    /* SCROLL ACHIEVEMENTS */
-    srtop.reveal('.work .box', { origin: 'bottom' });
-
+    if (typeof ScrollReveal !== 'undefined') {
+        const srtop = ScrollReveal({
+            origin: 'top',
+            distance: '80px',
+            duration: 1200,
+            reset: true,
+            viewFactor: 0.1,
+            mobile: false,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)'
+        });
+        srtop.reveal('.work .box', { origin: 'bottom', interval: 80 });
+    }
 }
 
-fetchData().then(data => {
+fetchData("skills").then(data => {
     showSkills(data);
 });
 
@@ -196,21 +242,11 @@ fetchData("achievements").then(data => {
 });
 
 // <!-- tilt js effect starts -->
-VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    max: 15,
-});
-// <!-- tilt js effect ends -->
-
-
-// pre loader start
-// function loader() {
-//     document.querySelector('.loader-container').classList.add('fade-out');
-// }
-// function fadeOut() {
-//     setInterval(loader, 500);
-// }
-// window.onload = fadeOut;
-// pre loader end
+if (typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(document.querySelectorAll(".tilt"), {
+        max: 15,
+    });
+}
 
 // disable developer mode
 document.onkeydown = function (e) {
@@ -231,39 +267,24 @@ document.onkeydown = function (e) {
     }
 }
 
-
-
 /* ===== SCROLL REVEAL ANIMATION ===== */
-const srtop = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 1200,
-    reset: true,
-    mobile: false,
-    easing: 'cubic-bezier(0.5, 0, 0, 1)'
-});
+if (typeof ScrollReveal !== 'undefined') {
+    const srtop = ScrollReveal({
+        origin: 'top',
+        distance: '80px',
+        duration: 1200,
+        reset: true,
+        mobile: false,
+        easing: 'cubic-bezier(0.5, 0, 0, 1)'
+    });
 
-/* SCROLL ABOUT */
-srtop.reveal('.about .content h3', { origin: 'bottom' });
-srtop.reveal('.about .content .tag', { origin: 'bottom' });
-srtop.reveal('.about .content p', { origin: 'bottom' });
-srtop.reveal('.about .content .box-container', { origin: 'bottom' });
-srtop.reveal('.about .content .resumebtn', { origin: 'bottom' });
-srtop.reveal('.about .image', { origin: 'left' });
-
-/* SCROLL SKILLS */
-srtop.reveal('.skills .container', { origin: 'bottom' });
-srtop.reveal('.skills .container .bar', { origin: 'bottom' });
-
-/* SCROLL EDUCATION */
-srtop.reveal('.education .box', { origin: 'bottom' });
-
-/* SCROLL PROJECTS */
-srtop.reveal('.work .box', { origin: 'bottom' });
-
-/* SCROLL EXPERIENCE */
-
-
-/* SCROLL CONTACT */
-srtop.reveal('.contact .container', { origin: 'bottom' });
-srtop.reveal('.contact .container .form-group', { origin: 'bottom' });
+    srtop.reveal('.about .content h3', { origin: 'bottom' });
+    srtop.reveal('.about .content .tag', { origin: 'bottom' });
+    srtop.reveal('.about .content p', { origin: 'bottom' });
+    srtop.reveal('.about .content .box-container', { origin: 'bottom' });
+    srtop.reveal('.about .content .resumebtn', { origin: 'bottom' });
+    srtop.reveal('.about .image', { origin: 'left' });
+    srtop.reveal('.skills .container', { origin: 'bottom' });
+    srtop.reveal('.education .box', { origin: 'bottom' });
+    srtop.reveal('.contact .container', { origin: 'bottom' });
+}

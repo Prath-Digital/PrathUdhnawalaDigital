@@ -1,31 +1,7 @@
 {
-  "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/skills.json",
-      "dest": "/skills.json"
-    },
-    {
-      "src": "/achievements.json",
-      "dest": "/achievements.json"
-    },
-    {
-      "src": "/achievements",
-      "dest": "/achievements.html"
-    },
-    {
-      "src": "/404",
-      "dest": "/404.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
+  "rewrites": [
+    { "source": "/achievements", "destination": "/achievements.html" }
   ]
 }
