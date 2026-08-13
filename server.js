@@ -4,8 +4,9 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files from the root directory
+// Serve static files from the root directory and assets directory explicitly
 app.use(express.static(__dirname));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Route for the main page
 app.get('/', (req, res) => {
@@ -19,9 +20,17 @@ app.get('/achievements', (req, res) => {
 
 // Catch-all route for 404
 app.get('*', (req, res) => {
+    // If request is for an asset file or extension, return standard 404 text instead of 404.html to avoid MIME type errors
+    if (req.path.startsWith('/assets/') || req.path.includes('.')) {
+        return res.status(404).send('404 Not Found');
+    }
     res.status(404).sendFile(path.join(__dirname, '404.html'));
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
-});
+module.exports = app;
+
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server is running at http://localhost:${PORT}`);
+    });
+}
